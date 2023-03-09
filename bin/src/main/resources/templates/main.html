@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scapreloaderle=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/swiper.min.css" />
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+
+<body class="loaded">
+
+<div layout:fragment="content">
+    <!-- section 1 -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h4>Enjoy The Games</h4>
+          <h1>
+            Epic Games Made For<br />
+            True Gamers!
+          </h1>
+          <div class="btn-group">
+            <a href="signup.html" class="default-btn">Join With Us</a>
+            <a
+              data-autoplay="true"
+              data-vbtype="video"
+              href="https://www.youtube.com/watch?v=tv7LfFeamsc"
+              class="dl-video-popup play-btn">
+              <!-- <svg
+                enable-background="new 0 0 41.999 41.999"
+                version="1.1"
+                viewBox="0 0 41.999 41.999"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40  c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z M7.5,39.095V2.904l26.239,18.096L7.5,39.095z"></path>
+              </svg> -->
+              <div class="ripple"></div>
+            </a>
+          </div>
+          <div class="hero-element">
+            <img src="images/about-characters.png" alt="thumb" />
+            <div class="shape-wrap">
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+              <div class="shape shape-4"></div>
+            </div>
+            <div class="shape-wrap right">
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+              <div class="shape shape-4"></div>
+            </div>
+          </div>
+          <!-- /.hero-element -->
+        </div>
+      </div>
+      <div class="gradiant-border"></div>
+    </section>
+    <!--/.hero-section  -->
+
+    <!-- section 2 -->
+    <section class="matches-section padding">
+      <div class="container">
+        <div
+          class="section-heading mb-40 text-center wow fade-in-bottom"
+          data-wow-delay="200ms">
+          <h3>Upcoming matches</h3>
+          <h2>
+            Battles Extreme <br />
+            Masters <span>Tournament</span>
+          </h2>
+          <p>
+            Our success in creating business solutions is due in large part
+            <br />to our talented and highly committed team.
+          </p>
+        </div>
+        <ul class="upcoming-matches">
+          <li class="matches-list">
+            <div
+              class="participate-team wow fade-in-left"
+              data-wow-delay="200ms">
+              <img src="images/team-logo-1.png" alt="team" />
+              <h3><a href="team-detail.html">Purple Death Cadets</a></h3>
+              <div class="match-info">Group 04 | Rank 07</div>
+            </div>
+            <div class="match-time">
+              <h3>10:00 <span>2023-02-10</span></h3>
+              <ul class="watch-btn">
+                <li>
+                  <a
+                    class="dl-video-popup"
+                    data-autoplay="true"
+                    data-vbtype="video"
+                    href="https://www.youtube.com/watch?v=tv7LfFeamsc"
+                    ><i class="lab la-youtube"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="dl-video-popup"
+                    data-autoplay="true"
+                    data-vbtype="video"
+                    href="https://www.youtube.com/watch?v=tv7LfFeamsc"
+                    ><i class="lab la-twitch"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="participate-team oponent wow fade-in-right"
+              data-wow-delay="200ms">
+              <h3><a href="team-detail.html">Trigger Brain Squad</a></h3>
+              <div class="match-info">Group 04 | Rank 01</div>
+              <img src="images/team-logo-2.png" alt="team" />
+            </div>
+          </li>
+          <!-- /.matches-list-1 -->
+
+          <li class="matches-list">
+            <div
+              class="participate-team wow fade-in-left"
+              data-wow-delay="400ms">
+              <img src="images/team-logo-3.png" alt="team" />
+              <h3><a href="team-detail.html">The Black Hat Hackers</a></h3>
+              <div class="match-info">Group 04 | Rank 06</div>
+            </div>
+            <div class="match-time">
+              <h3>12:30 <span>2023-02-10</span></h3>
+              <ul class="watch-btn">
+                <li>
+                  <a
+                    class="dl-video-popup"
+                    data-autoplay="true"
+                    data-vbtype="video"
+                    href="https://www.youtube.com/watch?v=tv7LfFeamsc"
+                    ><i class="lab la-youtube"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="dl-video-popup"
+                    data-autoplay="true"
+                    data-vbtype="video"
+                    href="https://www.youtube.com/watch?v=tv7LfFeamsc"
+                    ><i class="lab la-twitch"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="participate-team oponent wow fade-in-right"
+              data-wow-delay="400ms">
+              <h3><a href="team-detail.html">Your Worst Nightmare</a></h3>
+              <div class="match-info">Group 05 | Rank 02</div>
+              <img src="images/team-logo-4.png" alt="team" />
+            </div>
+          </li>
+          <!-- /.matches-list-2 -->
+        </ul>
+        <div class="review-more">
+          <div class="btn-group pt-50">
+            <a href="gamer.html" class="default-btn">Review More</a>
+          </div>
+        </div>
+      
+    </section>
+    <!-- /.matches-section -->
+
+    <!-- section 3 -->
+    <section class="team-section padding-bottom">
+      <div class="container">
+        <div
+          class="section-heading text-center mb-40 wow fade-in-bottom"
+          data-wow-delay="200ms">
+          <h3>Our Gammers</h3>
+          <h2>Meet Our <span>Gamers</span></h2>
+          <p>
+            Our success in creating business solutions is due in large part
+            <br />to our talented and highly committed team.
+          </p>
+        </div>
+        <div class="gamers-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 sm-padding">
+                <div class="team-item">
+                  <div class="team-thumb">
+                    <img src="images/team-1.png" alt="thumb" />
+                    <div class="shape-wrap">
+                      <div class="shape shape-1"></div>
+                      <div class="shape shape-2"></div>
+                      <div class="shape shape-3"></div>
+                      <div class="shape shape-4"></div>
+                    </div>
+                  </div>
+                  <div class="team-content">
+                    <span class="whte-shape"></span>
+                    <h3><a href="gamer-detail.html">Gamer Name</a></h3>
+                    <h4>Team Name</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 sm-padding">
+                <div class="team-item">
+                  <div class="team-thumb">
+                    <img src="images/team-2.png" alt="thumb" />
+                    <div class="shape-wrap">
+                      <div class="shape shape-1"></div>
+                      <div class="shape shape-2"></div>
+                      <div class="shape shape-3"></div>
+                      <div class="shape shape-4"></div>
+                    </div>
+                  </div>
+                  <div class="team-content">
+                    <span class="whte-shape"></span>
+                    <h3><a href="gamer-detail.html">Gamer Name</a></h3>
+                    <h4>Team Name</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 sm-padding">
+                <div class="team-item">
+                  <div class="team-thumb">
+                    <img src="images/team-3.png" alt="thumb" />
+                    <div class="shape-wrap">
+                      <div class="shape shape-1"></div>
+                      <div class="shape shape-2"></div>
+                      <div class="shape shape-3"></div>
+                      <div class="shape shape-4"></div>
+                    </div>
+                  </div>
+                  <div class="team-content">
+                    <span class="whte-shape"></span>
+                    <h3><a href="gamer-detail.html">Gamer Name</a></h3>
+                    <h4>Team Name</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 sm-padding">
+                <div class="team-item">
+                  <div class="team-thumb">
+                    <img src="images/team-4.png" alt="thumb" />
+                    <div class="shape-wrap">
+                      <div class="shape shape-1"></div>
+                      <div class="shape shape-2"></div>
+                      <div class="shape shape-3"></div>
+                      <div class="shape shape-4"></div>
+                    </div>
+                  </div>
+                  <div class="team-content">
+                    <span class="whte-shape"></span>
+                    <h3><a href="gamer-detail.html">Gamer Name</a></h3>
+                    <h4>Team Name</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-more">
+            <div class="btn-group pt-50">
+              <a href="gamer.html" class="default-btn">Review More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    
+    
+    <script src="js/jquary-3.6.0.min.js"></script>
+    <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/odometer.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/venobox.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

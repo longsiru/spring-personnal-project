@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- 레이아웃 기능을 사용하기 위해 추가 -->
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Game Site</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/swiper.min.css" />
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!-- bootstrap js, popper -->
+
+    <!-- jquery -->
+
+    <!--각 페이지에 스크립트가 작성될 위치 -->
+    <th:block layout:fragment="js"></th:block>
+
+    <!--각 페이지에 css가 작성될 위치 -->
+    <th:block layout:fragment="css"></th:block>
+  </head>
+  <body>
+    <!-- fragments/header.html의 header를 가지고와서 치환한다 -->
+    <div th:replace="fragments/header::header"></div>
+
+    <!-- layout에서 변환될 영역을 설정 -->
+    <!--  -->
+    <div layout:fragment="content" class="content"></div>
+
+    <!-- fragments/footer.html의 footer를 가지고와서 치환한다 -->
+    <div th:replace="fragments/footer::footer"></div>
+    <script src="/js/jquary-3.6.0.min.js"></script>
+    <script src="/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/odometer.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/venobox.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/smooth-scroll.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script type="text/javascript">
+   
+    	//메뉴 active 적용
+      document.addEventListener("DOMContentLoaded", () => {
+        let pathname = window.location.pathname;
+        let navs = document.querySelectorAll(".nav-menu > li");
+        let act = document.querySelector(".active"); 
+        if (act != null) {
+          act.classList.remove("active");//active remove
+        }
+
+        if (pathname.indexOf("/shop") != -1) {
+	          let nav_name = document.querySelector(".shop");
+	          nav_name.classList.add("active");
+        } else if (pathname.indexOf("/post") != -1) {
+	          let nav_name = document.querySelector(".post");
+	          nav_name.classList.add("active");
+        } else if (pathname.indexOf("gamer") != -1) {
+	          let nav_name = document.querySelector(".gamer");
+	          nav_name.classList.add("active");
+        } else if (pathname.indexOf("/team") != -1) {
+	        let nav_name = document.querySelector(".team");
+	        nav_name.classList.add("active");
+        } else if (pathname.indexOf("/match") != -1) {
+          let nav_name = document.querySelector(".match");
+          nav_name.classList.add("active");
+        } else if (pathname.indexOf("/") != -1) {
+          let nav_name = document.querySelector(".home");
+          nav_name.classList.add("active");
+        }
+      });
+    	
+      function deleteGamer(gamerId){
+      	let deleteConf = confirm("삭제하시겠습니까?");    
+      	
+      	if(!deleteConf) return; //취소 버튼 누르면 삭제 취소
+      	
+         var token = $("meta[name='_csrf']").attr("content");
+         var header = $("meta[name='_csrf_header']").attr("content");
+         
+         var url = "/admin/gamer/" + gamerId + "/delete";
+         
+         $.ajax({
+             url      : url,
+             type     : "DELETE",
+             beforeSend : function(xhr){
+                 /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                 xhr.setRequestHeader(header, token);
+             },
+             dataType : "json",
+             cache   : false,
+             success  : function(result, status){
+             	alert("삭제 되었습니다.");
+             	location.href='/gamer';
+             },
+             error : function(jqXHR, status, error){
+
+                 if(jqXHR.status == '401'){
+                     alert('로그인 후 이용해주세요');
+                     location.href='/users/login';
+                 } else{
+                     alert(jqXHR.responseJSON.message);
+                 }
+
+             }
+         });
+      }
+         
+         
+         function saveComment(postId){
+        	 let saveConf = confirm("저장하시겠습니까?");
+        	 if(!saveConf) return false;
+        	 
+        	 let token = $("meta[name='_csrf']").attr("content");
+             let header = $("meta[name='_csrf_header']").attr("content");
+             
+             let content = document.getElementById("content");
+             
+             
+             let url = "/post/" + postId + "/comment";
+            	alert(url);
+            	
+              let paramData = {
+            		  postId : postId,
+            		  content : content.value,
+              };
+              
+              
+              
+             $.ajax({
+                 url      : url,
+                 type     : "POST",
+                 data	: paramData,
+                 beforeSend : function(xhr){
+                     /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                     xhr.setRequestHeader(header, token);
+                 },
+                 dataType : "text",
+                 cache   : false,
+                 success  : function(result, status){
+                 	alert("저장되었습니다.");
+                 	//location.href='/post/{postId}';
+                 },
+                 error : function(jqXHR, status, error){
+
+                     if(jqXHR.status == '401'){
+                         alert('로그인 후 이용해주세요');
+                         location.href='/users/login';
+                     } else{
+                         alert(jqXHR.responseJSON.message);
+                     }
+
+                 }
+             });
+      }
+      
+         function deleteComment(id) {
+				let deleteConf = confirm("삭제하시겠습니까?");
+				console.log('버튼클릭');
+				console.log(id);
+				if (!deleteConf)
+					return;
+				let boardId = document.getElementById('id').value;
+				var token = $("meta[name='_csrf']").attr("content");
+				var header = $("meta[name='_csrf_header']").attr("content");
+
+				var url = "/post/" + id + "/delete"
+				$.ajax({
+					url : url,
+					type : "DELETE",
+					beforeSend : function(xhr) {
+						/* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+						xhr.setRequestHeader(header, token);
+					},
+					dataType : "json",
+					cache : false,
+					success : function(result, status) {
+						alert("삭제 되었습니다.");
+						location.href = '/post/' + boardId;
+					},
+					error : function(jqXHR, status, error) {
+
+						if (jqXHR.status == '401') {
+							alert('로그인 후 이용해주세요');
+							location.href = '/users/login';
+						} else {
+							alert(jqXHR.responseJSON.message);
+						}
+
+					}
+				});
+			}
+    </script>
+    
+    
+  </body>
+</html>

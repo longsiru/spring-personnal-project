@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scapreloaderle=1.0" />
+    <title>Document</title>
+
+
+  </head>
+
+  <body class="loaded">
+  <!-- th:fragment 다른 페이지 포함 시킬 영역을 만들어줘 -->
+	<div th:fragment="header">
+    <!-- site-preloader -->
+    <div class="site-preloader">
+      <div class="spinner"></div>
+    </div>
+    <!-- site-preloader -->
+
+    <header class="header">
+      <div class="primary-header">
+        <div class="container">
+          <div class="primary-header-inner">
+            <div class="header-logo">
+              <a href="index.html">
+                <img class="logo" src="/images/black-cat-logo.png" alt="Logo" />
+              </a>
+            </div>
+            <!-- /.header-logo -->
+            <div class="header-menu-wrap">
+              <div class="header-nav-menu">
+                <ul class="nav-menu">
+                  <li class="home active">
+                    <a href="/">HOME</a>
+                  </li>
+                  <li class="match">
+                    <a href="/match">MATCH</a>
+                     <ul sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                      <li><a href="/admin/match/new">Add Match</a></li>
+                    </ul>
+                  </li>
+                  <li class="team">
+                    <a href="/team">TEAM</a>
+                    <ul sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                      <li><a href="/admin/team/new">Add Team</a></li>
+                    </ul>
+                  </li>
+                  <li class="gamer">
+                    <a href="/gamer">GAMER</a>
+                    <ul sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                      <li><a href="/admin/gamer/new">Add Gamer</a></li>
+                    </ul>
+                  </li>
+                  <li class="post">
+                    <a href="/post">POST</a>
+                    <ul sec:authorize="isAuthenticated()">
+                      <li><a href="/post/createpost">Create Post</a></li>
+                    </ul>
+                  </li>
+                  <li class="shop"><a href="#">SHOP</a></li>
+                </ul>
+              </div>
+              <div class="nav-bnt" sec:authorize="isAnonymous()">
+                <ul>
+                  <li class="nav-item mr-1 ml-0">
+                    <a class="nav-link login_btn" href="/users/login">Log in</a>
+                  </li>
+                  <li class="nav-item ml-0">
+                    <a class="nav-link signup_btn" href="/users/signup"
+                      >Sign Up</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="nav-bnt" sec:authorize="isAuthenticated()">
+                <ul>
+                  <li class="nav-item ml-0">
+                    <a class="nav-link signup_btn" href="/users/logout"
+                      >Log Out</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.header-menu-wrap -->
+            <div class="header-right">
+              <div>
+                <img
+                  src="/images/search-icon2.png"
+                  alt=""
+                  class="searches-icon" />
+              </div>
+
+              <!-- Burger menu -->
+              <div class="mobile-menu-icon">
+                <div class="burger-menu">
+                  <div class="line-menu line-half first-line"></div>
+                  <div class="line-menu"></div>
+                  <div class="line-menu line-half last-line"></div>
+                </div>
+              </div>
+            </div>
+            <!-- /.header-right -->
+          </div>
+          <!-- /.primary-header-one-inner -->
+        </div>
+      </div>
+      <!-- /.primary-header -->
+    </header>
+    <!-- /.site-header-->
+
+    <!-- /#popup-search-box -->
+    <div id="popup-search-box">
+      <div class="box-inner-wrap d-flex align-items-center">
+        <form id="form" action="#" method="get" role="search">
+          <input
+            id="popup-search"
+            type="text"
+            name="s"
+            placeholder="Type keywords here..." />
+          <button id="popup-search-button" type="submit" name="submit">
+            <i class="las la-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- /#popup-search-box -->
+  </div>
+  </body>
+</html>

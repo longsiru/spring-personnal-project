@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+<!-- StyleSheet link CSS -->
+    
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/registe.css" type="text/css"/>
+    
+    <!-- Font Awesome link -->
+    <link
+      rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    
+<!-- 사용자 CSS 추가 -->
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- LOGIN FORM SECTION -->
+    <section class="login-form d-flex align-items-center">
+      <div class="container">
+        <div class="login-form-title text-center">
+          <a href="/">
+             <figure class="login-page-logo">
+              <img src="/images/black-cat-logo.png" alt="" />
+            </figure>
+          </a>
+          <h2 class="text-white">Welcome Back !</h2>
+        </div>
+        <div class="login-form-box">
+          <div class="login-card">
+            <form>
+              <div class="form-group">
+                <input
+                  class="input-field form-control"
+                  type="email"
+                  id="exampleInputEmail1"
+                  placeholder="Email"
+                  required />
+              </div>
+              <div class="form-group">
+                <input
+                  class="input-field form-control"
+                  type="password"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  required />
+              </div>
+              <button type="submit" class="btn btn-primary hover-effect">
+                Login
+              </button>
+              <div>
+                <label
+                  class="text-white font-weight-normal mb-0"
+                  style="cursor: pointer">
+                  <input
+                    class="checkbox"
+                    type="checkbox"
+                    name="userRememberMe"
+                    required />
+                  Remember me
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="join-now-outer text-center">
+            <a class="text-white" href="signup.html"
+              >Join now, create your FREE account</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+	</div>
+	<script src="/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

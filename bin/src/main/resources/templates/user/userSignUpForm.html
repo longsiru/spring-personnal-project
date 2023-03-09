@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    
+   
+    <!-- Font Awesome link -->
+    <link
+      rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <!-- StyleSheet link CSS -->
+    <link href="/css/registe.css" rel="stylesheet" type="text/css" />
+<!-- 사용자 CSS 추가 -->
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- SIGN UP FORM SECTION -->
+    <section class="login-form sign-up-form d-flex align-items-center">
+      <div class="container">
+        <div class="login-form-title text-center">
+          <a href="/">
+            <figure class="login-page-logo">
+              <img src="/images/black-cat-logo.png" alt="" />
+            </figure>
+          </a>
+          <h2 class="text-white">Create Your Account !</h2>
+        </div>
+        <div class="login-form-box">
+          <div class="login-card">
+            <form>
+              <div class="form-group">
+                <input
+                  class="input-field form-control"
+                  type="text"
+                  id="exampleInputName1"
+                  placeholder="Name"
+                  required />
+              </div>
+              <div class="form-group">
+                <input
+                  class="input-field form-control"
+                  type="email"
+                  id="exampleInputEmail1"
+                  placeholder="Email"
+                  required />
+              </div>
+              <div class="form-group">
+                <input
+                  class="input-field form-control"
+                  type="password"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  required />
+              </div>
+              <button type="submit" class="hover-effect btn btn-primary mb-0">
+                Register Now
+              </button>
+            </form>
+          </div>
+          <div class="join-now-outer text-center">
+            <a class="text-white" href="login.html">Already have an account?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	</div>
+	<script src="/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
