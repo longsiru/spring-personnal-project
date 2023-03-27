@@ -7,9 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.util.StringUtils;
 
 import com.game.entity.MatchImage;
-import com.game.entity.PostImage;
 import com.game.repository.MatchImageRepository;
-import com.game.repository.PostImageRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,14 +25,14 @@ public class MatchImgService {
 	
 	
 	//post 이미지 저장 메소드
-			public void saveMatchImage(MatchImage matchImage, MultipartFile matchImageFile) throws Exception {
-				String matchOriImgName = matchImageFile.getOriginalFilename(); //파일 이름
+			public void saveMatchImage(MatchImage matchImage, MultipartFile matchImgFile) throws Exception {
+				String matchOriImgName = matchImgFile.getOriginalFilename(); //파일 이름
 				String matchImageName = "";
 				String matchImageUrl = "";
 				
 				//파일 업로드
 				if(!StringUtils.isEmpty(matchOriImgName)) {
-					matchImageName = fileService.uploadFile(matchImageLocation, matchOriImgName, matchImageFile.getBytes());
+					matchImageName = fileService.uploadFile(matchImageLocation, matchOriImgName, matchImgFile.getBytes());
 					matchImageUrl = "/game/match/" + matchImageName;
 				}
 				

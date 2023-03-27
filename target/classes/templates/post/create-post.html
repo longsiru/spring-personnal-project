@@ -67,9 +67,8 @@
                       required
                       style="height: 300px"></textarea>
                   </div>
-                 <div  th:if="${#lists.isEmpty(donationBoardFormDto.donationBoardImgDtoList)}">
-                 	<div th:each="num: ${#numbers.sequence(1, 10)}">
-                  	 <div class="col-md-12 form-group">
+                 <div  th:if="${#lists.isEmpty(postFormDto.id)}">
+                  	 <div class="col-md-12 form-group"> 
                 		<input 
                   		class="input-field form-control"
                  	 	type="file"
